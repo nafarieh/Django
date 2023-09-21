@@ -1,0 +1,20 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Hello</title>#}
+{#</head>#}
+{#<body>#}
+
+{%  extends 'base.html' %}
+{% block title %} Hello {% endblock %}
+{% block content %}
+        {% if name == 'Zahra2' %}
+            <p>Zahra joonam ...</p>
+        {% else %}
+            <h3>Hello {{ name|upper }} *...</h3>
+        {% endif %}
+{%  endblock %}
+
+{#</body>#}
+{#</html>#}

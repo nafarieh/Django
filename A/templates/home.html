@@ -1,0 +1,59 @@
+{%  extends 'base.html' %}
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+
+
+{#    <h3>Home page</h3>#}
+{#    {{ todos1 }}#}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+
+    {% for todo in todos1 %}
+        <h3> {{ todo.first_name }} </h3>
+        <small> {{ todo.last_name }} </small>
+        <p> {{ todo.body }} </p>
+    {% endfor %}
+
+{% endblock %}
+
+
+
+{#</body>#}
+{#</html>#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
