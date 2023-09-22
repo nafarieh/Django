@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <a href="{% url 'delete' todo.id %}" class="btn btn-danger"> Delete </a>
     <h3> {{ todo.first_name }} </h3>
     <smal> {{ todo.last_name }} </smal></hr>
 <!--    <p> {{ todo.body }} </p>-->
