@@ -19,3 +19,8 @@ def say_hello(request):
     person = {'name': 'Zahra'}
     # return render(request,'hello.html', context= person)
     return render(request,'hello.html', context= {'name': 'Zahra'})
+
+
+def detail(request, todo_id):
+    todo = Todo.objects.get(id= todo_id)
+    return render(request, 'detail.html', {'todo': todo})

@@ -18,9 +18,9 @@
 
 
     {% for todo in todos1 %}
-        <h3> {{ todo.first_name }} </h3>
-        <small> {{ todo.last_name }} </small>
-        <p> {{ todo.body }} </p>
+        <a href="/detail/{{ todo.id }}"> {{ todo.first_name }} </a>></br>
+<!--        <small> {{ todo.last_name }} </small>-->
+<!--        <p> {{ todo.body }} </p>-->
     {% endfor %}
 
 {% endblock %}
