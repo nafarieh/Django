@@ -18,7 +18,8 @@
 
 
     {% for todo in todos1 %}
-        <a href="/detail/{{ todo.id }}"> {{ todo.first_name }} </a>></br>
+<!--        <a href="/detail/{{ todo.id }}"> {{ todo.first_name }} </a>></br>-->
+        <a href="{% url 'details' todo.id %}"> {{ todo.first_name }} </a>></br>
 <!--        <small> {{ todo.last_name }} </small>-->
 <!--        <p> {{ todo.body }} </p>-->
     {% endfor %}

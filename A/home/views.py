@@ -12,13 +12,13 @@ def home(request):
     return render(request,'home.html', {'todos1':all})
 
 
-def say_hello(request):
-    # pass
-    # return HttpResponse('Hello User ...')
-
-    person = {'name': 'Zahra'}
-    # return render(request,'hello.html', context= person)
-    return render(request,'hello.html', context= {'name': 'Zahra'})
+# def say_hello(request):
+#     # pass
+#     # return HttpResponse('Hello User ...')
+#
+#     person = {'name': 'Zahra'}
+#     # return render(request,'hello.html', context= person)
+#     return render(request,'hello.html', context= {'name': 'Zahra'})
 
 
 def detail(request, todo_id):
