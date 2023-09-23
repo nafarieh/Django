@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Todo
+from django.contrib import messages
 
 # Create your views here.
 
@@ -28,4 +29,5 @@ def detail(request, todo_id):
 
 def delete(request, todo_id):
     Todo.objects.get(id= todo_id).delete()
+    messages.success(request, 'todo deleted seuccesfully', 'success' )
     return redirect('home')
