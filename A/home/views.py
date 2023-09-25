@@ -35,5 +35,14 @@ def delete(request, todo_id):
 
 
 def create(request):
-    form= TodoCreateForm()
+    if request.method == 'POST':
+        form = TodoCreateForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            Todo.objects.create(first_name= cd['title'], last_name= cd['body'])
+            messages.success(request, 'Todo created successfully', 'success')
+            return redirect('home')
+            # print(form.cleaned_data)
+    else:
+        form= TodoCreateForm()
     return render(request, 'create.html', {'form':form})
