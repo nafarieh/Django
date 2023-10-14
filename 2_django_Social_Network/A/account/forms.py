@@ -20,7 +20,7 @@ class UserRegistrationForm(forms.Form):
         p1 = cd.get('password1')
         p2 = cd.get('password2')
 
-        if p1 and p2 and p2 != p2:
+        if p1 and p2 and (p1 != p2):
             raise ValidationError('password must match')
 
 
