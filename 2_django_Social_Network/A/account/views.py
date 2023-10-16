@@ -83,6 +83,8 @@ class UserPasswordResetView(auth_views.PasswordResetView):
     success_url = reverse_lazy('account:password_reset_done')
     email_template_name = 'account/password_reset_email.html'
 
+class UserPasswordResetDoneView(auth_views.PasswordResetDoneView):
+    template_name = 'account/password_reset_done.html'
 
 
 
