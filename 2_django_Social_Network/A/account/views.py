@@ -75,7 +75,8 @@ class UserProfileView(LoginRequiredMixin, View):
         # user= User.objects.get(id= user_id)
         # posts = Post.objects.all()
         # posts = get_list_or_404(Post, user=user)
-        posts = Post.objects.filter(user= user)
+        # posts = Post.objects.filter(user= user)
+        posts = user.posts.all()
         return render(request, 'account/profile.html', {'user':user, 'posts':posts})
 
 class UserPasswordResetView(auth_views.PasswordResetView):

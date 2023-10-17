@@ -6,7 +6,7 @@ from django.urls import reverse
 #آدرس مقاله دیتابیس
 #https://www.mongard.ir/articles/176/aunderstanding-database-relations/
 class Post(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE, related_name= "posts" ) #user.posts
     body = models.TextField(max_length= 500)
     slug= models.SlugField()
     created = models.DateTimeField(auto_now_add= True)
