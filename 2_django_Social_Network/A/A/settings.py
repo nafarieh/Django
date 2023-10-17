@@ -128,7 +128,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authenticate.EmailBackend',
 ]
-LOGIN_URL = '/account/Login'
+LOGIN_URL = '/account/login'
 
 
 
