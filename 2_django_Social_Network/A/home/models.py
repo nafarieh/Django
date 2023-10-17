@@ -12,6 +12,9 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add= True)
     updated = models.DateTimeField(auto_now= True)
 
+    class Meta:
+        ordering = ['-created']  # ('-created',) # ['-created','body']
+
     def __str__(self):
         # return self.slug
         return f'{self.slug} - {self.updated}'
