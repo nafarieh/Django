@@ -42,6 +42,10 @@ class UserLoginView(View):
     form_class= UserLoginForm
     template_name = 'account/login.html'
 
+    def setup(self, request, *args, **kwargs):
+        self.next = request.GET.get('next')
+        return super().setup(request, *args, **kwargs)
+
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect('home:home')
@@ -61,6 +65,9 @@ class UserLoginView(View):
                 messages.success(request, 'you logged in successfully','success')
                 return redirect('home:home')
             messages.error(request, 'username or password is wrong', 'warning')
+            if self.next:
+                return redirect(self.next)
+            return redirect('home:home')
         return render(request, self.template_name, {'form': form})
 
 class UserLogoutView(LoginRequiredMixin, View):
