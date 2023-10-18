@@ -16,6 +16,10 @@ class CommentCreateForm(forms.ModelForm):
 		}
 
 
+class CommentReplyForm(forms.ModelForm):
+	class Meta:
+		model = Comment
+		fields = ('body',)
 
 
 
