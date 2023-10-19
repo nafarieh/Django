@@ -22,6 +22,27 @@ class CommentReplyForm(forms.ModelForm):
 		fields = ('body',)
 
 
+class PostSearchForm(forms.Form):
+	search = forms.CharField()  # if insted of "search" we used "a" in the browser we see a=keywordsearch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

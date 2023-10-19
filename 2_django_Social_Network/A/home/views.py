@@ -6,7 +6,7 @@ from django.views import View
 from .models import Post, Comment, Vote
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from .forms import PostCreateUpdateForm, CommentCreateForm, CommentReplyForm
+from .forms import PostCreateUpdateForm, CommentCreateForm, CommentReplyForm, PostSearchForm
 from django.utils.text import slugify
 
 
@@ -17,10 +17,13 @@ from django.utils.text import slugify
 #     return render(request, 'home/index.html')
 
 class HomeView(View):
+    form_class = PostSearchForm
     def get(self, request):
         posts = Post.objects.all()
         # posts = Post.objects.order_by('-body') # '-created' #r
-        return render(request, 'home/index.html', {'posts': posts})
+        if request.GET.get('search'):
+            posts = posts.filter(body__contains=request.GET['search']) # id__contains #id__gte #body__startswith    #serach sample: %Leanon or Lenon%
+        return render(request, 'home/index.html', {'posts': posts, 'form':self.form_class})
 
     # def post(self, request):
     #     return render(request, 'home/home.html')
