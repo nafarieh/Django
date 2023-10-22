@@ -2,7 +2,7 @@ from django.urls import path, include
 from . import views
 
 
-app_name = 'home'
+
 
 # bucket_urls = [
 # 	path('', views.BucketHome.as_view(), name='bucket'),
@@ -10,6 +10,8 @@ app_name = 'home'
 # 	path('download_obj/<str:key>/', views.DownloadBucketObject.as_view(), name='download_obj_bucket'),
 # ]
 #
+app_name = 'home'
+
 urlpatterns = [
 	path('', views.HomeView.as_view(), name='home'),
     ]
