@@ -142,7 +142,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #-------------------------------------------------------
 # AUTH_USER_MODEL = 'accounts.User'
-
+#
 # ARVAN CLOUD STORAGE
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID = '40919781-d2f8-48a9-b0e0-dc45ed8d70d0'
