@@ -26,7 +26,7 @@ class User(AbstractBaseUser):
 		return True
 
 	@property
-	def is_staf(self):
+	def is_staff(self):
 		return self.is_admin
 
 

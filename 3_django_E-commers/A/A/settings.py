@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
 
     # Local apps
     'home.apps.HomeConfig',
@@ -138,3 +139,23 @@ MEDIA_ROOT = BASE_DIR/'media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#-------------------------------------------------------
+# AUTH_USER_MODEL = 'accounts.User'
+
+# ARVAN CLOUD STORAGE
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = '40919781-d2f8-48a9-b0e0-dc45ed8d70d0'
+AWS_SECRET_ACCESS_KEY = '39d7a610f1875aa687f7423d93118b96761106e3a054b2ef50cc6e63490f9e7c'
+AWS_S3_ENDPOINT_URL = 'https://s3.ir-tbz-sh1.arvanstorage.ir'
+AWS_STORAGE_BUCKET_NAME = 'zahra-django'
+AWS_SERVICE_NAME = 's3'
+AWS_S3_FILE_OVERWRITE = False
+# AWS_LOCAL_STORAGE = f'{BASE_DIR}/aws/'
+
+
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         'toolbar': 'full',
+#     },
+# }
