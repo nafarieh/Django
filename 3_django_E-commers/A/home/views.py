@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import Product, Category
-from .tasks import all_bucket_objects_task
+from . import tasks
 
 # from . import tasks
 from django.contrib import messages
@@ -39,9 +39,14 @@ class ProductDetailView(View):
 class BucketHome(View):
 	template_name = 'home/bucket.html'
 	def get(self, request):
-		objects = all_bucket_objects_task()
+		objects = tasks.all_bucket_objects_task()
 		# print("="*90)
 		# print(objects)
 		return render(request, self.template_name, {'objects':objects})
 
+class DeleteBucketObject(View):
+	def get(self, request, key):
+		tasks.delete_object_task.delay(key)
+		messages.success(request, 'your object will be delete soon.', 'info')
+		return redirect('home:bucket')
 
