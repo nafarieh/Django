@@ -23,4 +23,7 @@ class UserManager(BaseUserManager):
         user.is_admin = True
         user.is_superuser = True
         user.save(using=self._db)
+        # print("^"*20)
+        # print(user)
+        # print("^" * 20)
         return user

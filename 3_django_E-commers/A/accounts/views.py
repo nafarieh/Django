@@ -92,6 +92,9 @@ class UserLoginView(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
+            print("@"*20)
+            print(cd)
+            print("@" * 20)
             user = authenticate(request, phone_number=cd['phone'], password=cd['password'])
             print("&" * 20)
             print(user)

@@ -21,7 +21,7 @@ class UserAdmin(BaseUserAdmin):
     readonly_fields = ('last_login',)
 
     fieldsets = (
-        ('None', {'fields': ('email', 'phone_number', 'full_name', 'password')}),
+        ('Main', {'fields': ('email', 'phone_number', 'full_name', 'password')}),
         ('Permissions',
          {'fields': ('is_active', 'is_admin', 'last_login')}),
     )
@@ -42,5 +42,5 @@ class UserAdmin(BaseUserAdmin):
         return form
 
 
-# admin.site.unregister(Group)
+admin.site.unregister(Group)
 admin.site.register(User, UserAdmin)
