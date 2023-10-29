@@ -6,10 +6,11 @@ from .forms import UserCreationForm, UserChangeForm
 from .models import User, OtpCode
 from django.contrib.auth.models import Group
 
+
 # Register your models here.
 @admin.register(OtpCode)
 class OtpCodeAdmin(admin.ModelAdmin):
-	list_display = ('phone_number', 'code', 'created')
+    list_display = ('phone_number', 'code', 'created')
 
 
 class UserAdmin(BaseUserAdmin):
@@ -36,11 +37,13 @@ class UserAdmin(BaseUserAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
-        is_superuser = request.user.is_superuser
-        if not is_superuser:
-            form.base_fields['is_superuser'].disabled = True
+        # is_superuser = request.user.is_superuser
+        # if not is_superuser:
+        #     form.base_fields['is_superuser'].disabled = True
         return form
 
 
 admin.site.unregister(Group)
 admin.site.register(User, UserAdmin)
+
+###############################################################################
