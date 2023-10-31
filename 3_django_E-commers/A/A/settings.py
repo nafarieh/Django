@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     #
     # # Third-party apps
     # 'storages',
-    # 'django_celery_beat',
+    'django_celery_beat',
     # 'ckeditor',
 ]
 
