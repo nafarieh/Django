@@ -23,11 +23,15 @@ class UserRegisterView(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             random_code = random.randint(1000, 9999)
-            print("*" * 20)
-            print(random_code)
-            print("*" * 20)
+            # print("*" * 20)
+            # print(random_code)
+            # print("*" * 20)
             send_otp_code(form.cleaned_data['phone'], random_code)
             OtpCode.objects.create(phone_number=form.cleaned_data['phone'], code=random_code)
+            # print("#" * 20)
+            # print(cc)
+            # print(form.cleaned_data)
+            # print("#" * 20)
             request.session['user_registration_info'] = {
                 'phone_number': form.cleaned_data['phone'],
                 'email': form.cleaned_data['email'],
@@ -54,12 +58,15 @@ class UserRegisterVerifyCodeView(View):
         user_session = request.session['user_registration_info']
         code_instance = OtpCode.objects.get(phone_number=user_session['phone_number'])
         form = self.form_class(request.POST)
+        # print("&" * 20)
+        # print(form)
+        # print("&" * 20)
         if form.is_valid():
             cd = form.cleaned_data
             # print("*"*20)
             # print(cd['code'])
-            print("*" * 20)
-            print(user_session)
+            # print("*" * 20)
+            # print(user_session)
             if cd['code'] == code_instance.code:
                 User.objects.create_user(user_session['phone_number'], user_session['email'],
                                          user_session['full_name'], user_session['password'])
@@ -96,9 +103,9 @@ class UserLoginView(View):
             # print(cd)
             # print("@" * 20)
             user = authenticate(request, phone_number=cd['phone'], password=cd['password'])
-            print("&" * 20)
-            print(user)
-            print("&" * 20)
+            # print("&" * 20)
+            # print(user)
+            # print("&" * 20)
             if user is not None:
                 login(request, user)
                 messages.success(request, 'you logged in successfully', 'info')
