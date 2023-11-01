@@ -44,3 +44,12 @@ class Product(models.Model):
         return reverse('home:product_detail', args=[self.slug, ])
 
 
+# """"""
+#     Mobile:
+#         Sumsung
+#         Nokia
+#
+#     Laptob:
+#         Asus
+#         Apple
+# """"""

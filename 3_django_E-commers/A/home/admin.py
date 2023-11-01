@@ -6,6 +6,13 @@ from .models import Category, Product
 
 admin.site.register(Category)
 
+
+#Bootstrap
+#https://getbootstrap.com/docs/5.1/components/dropdowns/
+
+#Split button
+
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
 	raw_id_fields = ('category',)

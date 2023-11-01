@@ -35,15 +35,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages',
 
     # Local apps
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
-    # 'orders.apps.OrdersConfig',
-    #
-    # # Third-party apps
-    # 'storages',
+    'orders.apps.OrdersConfig',
+
+    # Third-party apps
+    'storages',
     'django_celery_beat',
     # 'ckeditor',
 ]
