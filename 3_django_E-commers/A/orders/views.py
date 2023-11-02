@@ -16,8 +16,8 @@ from django.core.exceptions import PermissionDenied
 # Create your views here.
 class CartView(View):
     def get(self, request):
-        # cart = Cart(request)
-        return render(request, 'orders/cart.html')
+        cart = Cart(request)
+        return render(request, 'orders/cart.html', {'cart':cart})
 
 
 class CartAddView(View):
