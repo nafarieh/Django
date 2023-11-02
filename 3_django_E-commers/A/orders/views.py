@@ -21,5 +21,10 @@ class CartView(View):
         return render(request, 'orders/cart.html')
 
 
-# class CartAddView(PermissionRequiredMixin, View):
-#     permission_required = 'orders.add_order'
+
+class CartAddView(View):
+	permission_required = 'orders.add_order'
+
+	def post(self, request, product_id):
+		pass
+
