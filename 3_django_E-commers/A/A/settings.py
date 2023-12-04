@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     # Third-party apps
     'storages',
     'django_celery_beat',
-    # 'ckeditor',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -83,10 +83,26 @@ WSGI_APPLICATION = 'A.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'zahra_db',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379',
+    }
+}
+
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -148,8 +164,8 @@ AWS_SERVICE_NAME = 's3'
 AWS_S3_FILE_OVERWRITE = False
 AWS_LOCAL_STORAGE = f'{BASE_DIR}/aws/'
 
-# CKEDITOR_CONFIGS = {
-#     'default': {
-#         'toolbar': 'full',
-#     },
-# }
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
