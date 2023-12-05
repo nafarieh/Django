@@ -16,9 +16,52 @@
 #     return Response({'name':'amir'})
 #--------------------------------------------
 
+# from rest_framework.views import APIView
+# from rest_framework.response import Response
+#
+# class Home(APIView):
+#     def get(self, request):
+#         return Response({"name":"jack"})
+
+#-----------------------------------------------
+# http://127.0.0.1:8000/zahra
+
+# from rest_framework.views import APIView
+# from rest_framework.response import Response
+# class Home(APIView):
+#     def get(self, request,name):
+#         return Response({"name": name})
+
+#-----------------------------------------------
+# query parameter in http://127.0.0.1:8000/?name=zahra
+
+# from rest_framework.views import APIView
+# from rest_framework.response import Response
+# class Home(APIView):
+#     def get(self, request):
+#         name= request.GET['name']
+#         return Response({"name": name})
+
+#--------------------------------------------
+# query params in http://127.0.0.1:8000/?name=zahra
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
 class Home(APIView):
     def get(self, request):
-        return Response({"name":"jack"})
+        name= request.query_params['name']
+        return Response({"name": name})
+# ___________________________________
+#POST
+# sample usage: file uploadding
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+class Home(APIView):
+    def get(self, request):
+        name= request.query_params['name']
+        return Response({"name": name})
+
+    def post(self, request):
+        name= request.data['name']
+        return Response({"name": name})
