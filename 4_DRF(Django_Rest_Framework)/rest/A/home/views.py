@@ -45,23 +45,36 @@
 #--------------------------------------------
 # query params in http://127.0.0.1:8000/?name=zahra
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-class Home(APIView):
-    def get(self, request):
-        name= request.query_params['name']
-        return Response({"name": name})
+# from rest_framework.views import APIView
+# from rest_framework.response import Response
+# class Home(APIView):
+#         name= request.query_params['name']
+#         return Response({"name": name})
 # ___________________________________
 #POST
 # sample usage: file uploadding
+#
+# from rest_framework.views import APIView
+# from rest_framework.response import Response
+# class Home(APIView):
+#     def get(self, request):
+#         name= request.query_params['name']
+#         return Response({"name": name})
+#
+#     def post(self, request):
+#         name= request.data['name']
+#         return Response({"name": name})
+
+#----------------------------------------------
+#session 3
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from .models import Person
+from .serializers import PersonSerializer
+
 class Home(APIView):
     def get(self, request):
-        name= request.query_params['name']
-        return Response({"name": name})
-
-    def post(self, request):
-        name= request.data['name']
-        return Response({"name": name})
+        persons= Person.objects.all()
+        ser_data= PersonSerializer(instance=persons, many= True)
+        return Response(data= ser_data.data)
