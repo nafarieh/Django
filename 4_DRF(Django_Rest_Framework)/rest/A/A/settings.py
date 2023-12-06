@@ -40,7 +40,9 @@ INSTALLED_APPS = [
 
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
-    'rest_framework'
+    'rest_framework',
+    
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # is_staff = False
+
+#Rest_framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
