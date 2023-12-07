@@ -12,7 +12,7 @@ class Person(models.Model):
 
 class Question(models.Model):
     user= models.ForeignKey(User, on_delete=models.CASCADE, related_name= 'questions')
-    title = models.CharField(max_length= 200)
+    title = models.CharField(max_length= 200, primary_key= True)
     slug = models.SlugField(max_length= 200)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add= True)
