@@ -6,4 +6,5 @@ urlpatterns = [
 	path('', views.Home.as_view(), name='home'), #endpoint
 	# path('<str:name>/', views.Home.as_view(), name='home'), #endpoint
 	# path('', views.home, name='home'),
+	path('questions/', views.QuestionView.as_view()), #endpoint
 ]
